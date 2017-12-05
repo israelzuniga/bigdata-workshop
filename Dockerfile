@@ -1,8 +1,10 @@
-# Copyright (c) Jupyter Development Team.
+# Origal file forked from Jupyter Dev team
+# Actual maintainer for this repo/class: Israel Z.
+# 2017, Copyright (c) Jupyter Development Team.
 # Distributed under the terms of the Modified BSD License.
 FROM jupyter/pyspark-notebook
 
-LABEL maintainer="Jupyter Project <jupyter@googlegroups.com>"
+LABEL maintainer="Israel Zúñiga de la Mora <hola@israelzuniga.com>"
 
 # Apache Toree kernel
 RUN pip install --no-cache-dir \
