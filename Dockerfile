@@ -23,3 +23,17 @@ RUN conda install --quiet --yes \
     'keras=2.0*' && \
     conda clean -tipsy && \
     fix-permissions $CONDA_DIR
+
+# h2o
+# This requires python-software-properties and Java.
+RUN apt-get install -y python-software-properties zip && \
+    echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu precise main" | tee -a /etc/apt/sources.list &&     echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu precise main" | tee -a /etc/apt/sources.list &&     apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886 C857C906 2B90D010 && \
+    apt-get update && \
+    echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
+    echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections && \
+    apt-get install -y oracle-java8-installer && \
+    cd /usr/local/src && mkdir h2o && cd h2o && \
+    wget http://h2o-release.s3.amazonaws.com/h2o/latest_stable -O latest && \
+    wget --no-check-certificate -i latest -O h2o.zip && rm latest && \
+    unzip h2o.zip && rm h2o.zip && cp h2o-*/h2o.jar . && \
+    pip install `find . -name "*whl"` && \
