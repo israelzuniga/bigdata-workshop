@@ -1,0 +1,10 @@
+
+docker run  -d -e GRANT_SUDO=yes \\
+ 6641  --user root \\
+ 6642  -p 4040:4040 \\
+ 6643  -p 4041:4041 \\
+ 6644  -p 4042:4042 \\
+ 6645  -p 4043:4043 \\
+ 6646  -p 8888:8888 \\
+ 6647  -p 18080:18080 \\
+ 6648  jupyter/pyspark-notebook start-notebook.sh
