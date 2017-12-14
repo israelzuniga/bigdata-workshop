@@ -1,4 +1,4 @@
-# Origal file forked from Jupyter Dev team
+# Original file forked from Jupyter Dev team
 # Actual maintainer for this repo/class: Israel Z.
 # 2017, Copyright (c) Jupyter Development Team.
 # Distributed under the terms of the Modified BSD License.
